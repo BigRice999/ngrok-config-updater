@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - Check-in Records</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f2f2f2; padding: 20px; }
+        h1 { color: #2e7d32; }
+        table { width: 100%; border-collapse: collapse; background: white; }
+        th, td { padding: 12px; border: 1px solid #ccc; text-align: center; }
+        th { background-color: #81c784; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        a { color: #039be5; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>Check-in Records</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Worker ID</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in checkins %}
+            <tr>
+                <td>{{ record[1] }}</td>
+                <td>{{ record[2] }}</td>
+                <td>{{ record[3] }}</td>
+                <td>{{ record[4] }}</td>
+                <td>{{ record[5] }}</td>
+                <td>{{ record[6] }}</td>
+                <td>
+                    <a href="/{{ record[7] }}" target="_blank">View</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
